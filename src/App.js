@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import './App.css';
 
+export function replaceCamelWithSpaces(str) {
+  return str.replace(/([A-Z])/g, ' $1').trim();
+}
+
 function App() {
-  const [color, setColor] = useState('red');
+  const [color, setColor] = useState('MediumVioletRed');
   const [disabled, setDisabled] = useState(false);
-  const newColor = color === 'red' ? 'blue' : 'red';
+  const newColor =
+    color === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
 
   return (
     <>
@@ -13,7 +18,7 @@ function App() {
         onClick={() => setColor(newColor)}
         disabled={disabled}
       >
-        Change to {newColor}
+        Change to {replaceCamelWithSpaces(newColor)}
       </button>
 
       <input
